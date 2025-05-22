@@ -19,21 +19,26 @@ public class ProjetoEtapa1 {
             System.out.println("6. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
-            scanner.nextLine(); // Limpa buffer
+            scanner.nextLine();
 
             switch (opcao) {
                 case 1:
+
                     System.out.print("\nDigite o nome do Livro para adicionar: ");
                     String livro = scanner.nextLine();
                     System.out.print("Digite o nome do Autor: ");
                     String autor = scanner.nextLine();
 
-                    listaLivros.add(livro);
-                    listAuthor.add(autor);
+                    if (listaLivros.contains(livro)) {
+                        System.out.println("Livro já existe na lista.");
+                    } else {
+                        listaLivros.add(livro);
+                        listAuthor.add(autor);
 
-                    System.out.println("--------------------------------------");
-                    System.out.println("Livro e autor adicionados com sucesso!");
-                    System.out.println("--------------------------------------");
+                        System.out.println("--------------------------------------");
+                        System.out.println("Livro e autor adicionados com sucesso!");
+                        System.out.println("--------------------------------------");
+                    }
                     break;
 
                 case 2:
@@ -73,7 +78,7 @@ public class ProjetoEtapa1 {
                     break;
 
                 case 4:
-                    if (listaLivros.isEmpty()) {
+                    if (listaLivros.isEmpty()) {//verifica se essa lista está vazia, retorna o boleano true ou false
                         System.out.println("------------------------------");
                         System.out.println("A lista de livros está vazia.");
                         System.out.println("------------------------------");
